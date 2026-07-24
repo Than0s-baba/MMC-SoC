@@ -11,7 +11,7 @@ omega    = 2 * pi * f_grid;
 
 %% 2. MMC Topology & Module Setup
 N     = 8;                % Number of submodules per arm
-Vc_nom    = V_dc /(2*N);  % Rated Submodule capacitor voltage target [V]
+Vc_nom    = V_dc /N;  % Rated Submodule capacitor voltage target [V]
 
 %% 3. Arm Components (Calculated & Defined)
 % Arm Resistance (parasitic/filter resistance)
