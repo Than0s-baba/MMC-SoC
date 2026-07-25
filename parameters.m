@@ -44,13 +44,4 @@ T_sample = 50e-6;      % Sample time for discrete controllers [s] (50 us)
 m        = 1;        % Modulation index
 cosphi   = 1;        % Power factor
 
-I_dc      = P_rated / V_dc;                    % DC-link current [A]
-I_arm_dc  = I_dc / 3;                          % DC component of arm current [A]
-
-V_s_peak  = m * V_dc / 2;                      % Peak phase voltage [V]
-I_s_peak  = (4 * P_rated) / (3 * m * V_dc * cosphi); % Peak phase current [A]
-I_arm_ac  = I_s_peak / 2;                      % AC component of arm current [A]
-
-I_max     = I_arm_ac + I_arm_dc;               % Maximum allowable arm current [A]
-
 disp('>>> MMC parameters loaded successfully into Base Workspace! <<<');
