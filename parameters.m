@@ -41,7 +41,11 @@ Vc_init = Vc_nom;
 T_sample = 50e-6;      % Sample time for discrete controllers [s] (50 us)
 
 %% 6. Current Limits 
-m        = 1;        % Modulation index
+m        = 0.83;        % Modulation index
 cosphi   = 1;        % Power factor
 
 disp('>>> MMC parameters loaded successfully into Base Workspace! <<<');
+
+%% 7. Load components
+R_load = 43.5; % Load resistance [43.5 Ohms]
+L_load = 67.2e-3 ; % Load inductance [67.2 mH]
