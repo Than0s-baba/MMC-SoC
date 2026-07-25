@@ -1,8 +1,6 @@
 %% ========================================================================
 %  MMC SYSTEM PARAMETERS SCRIPT
 %  ========================================================================
-clear; clc;
-
 %% 1. System & Grid Specifications
 V_dc     = 750;      % Nominal DC-link voltage [V] (750V)
 P_rated  = 1e3;       % Rated active power [W] (1 kW)
@@ -31,8 +29,7 @@ L_tolr = 15;          %(15%)
 C_sm     = 220e-6;       % Submodule capacitance [F] (220 uF)
 C_series_res = 45e-2;    % ( 0.45 ohms)
 
-%% 4. Control System Parameters (PI Controllers, PWM, etc.)
-f_carrier = 1000;      % Carrier switching frequency per submodule [Hz]
+%% 4. Control System Parameters 
 lambda_i    = 1;
 lambda_sw   = 0.1;
 lambda_cap  = 0.1;
@@ -42,5 +39,18 @@ Vc_init = Vc_nom;
 
 %% 5. Simulation Control Settings
 T_sample = 50e-6;      % Sample time for discrete controllers [s] (50 us)
+
+%% 6. Current Limits 
+m        = 1;        % Modulation index
+cosphi   = 1;        % Power factor
+
+I_dc      = P_rated / V_dc;                    % DC-link current [A]
+I_arm_dc  = I_dc / 3;                          % DC component of arm current [A]
+
+V_s_peak  = m * V_dc / 2;                      % Peak phase voltage [V]
+I_s_peak  = (4 * P_rated) / (3 * m * V_dc * cosphi); % Peak phase current [A]
+I_arm_ac  = I_s_peak / 2;                      % AC component of arm current [A]
+
+I_max     = I_arm_ac + I_arm_dc;               % Maximum allowable arm current [A]
 
 disp('>>> MMC parameters loaded successfully into Base Workspace! <<<');
