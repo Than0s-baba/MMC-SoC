@@ -49,3 +49,23 @@ disp('>>> MMC parameters loaded successfully into Base Workspace! <<<');
 %% 7. Load components
 R_load = 43.5; % Load resistance [43.5 Ohms]
 L_load = 67.2e-3 ; % Load inductance [67.2 mH]
+
+%% 8. Candidate Selection Thresholds
+
+% Current deadband
+% Used when comparing candidate arm currents. If the difference between
+% two candidate currents is smaller than I_DEADBAND, they are considered
+% equivalent. This reduces switching caused by insignificant numerical
+% differences.
+
+I_DEADBAND = 1e-3;      % [A]
+
+% Capacitor voltage tolerance
+% Used during capacitor-voltage sorting and submodule selection.
+% Capacitor voltages within V_TOL are treated as equal to prevent
+% unnecessary switching between nearly identical submodules.
+
+V_TOL_PERCENT = 0.001;      % 0.1%
+V_TOL = V_TOL_PERCENT * Vc_nom;      % [V]
+
+disp('>>> MMC parameters loaded successfully into Base Workspace! <<<');
