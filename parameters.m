@@ -18,7 +18,7 @@ R_arm    = 1208e-3;       % Arm resistance [1.208 Ohms]
 % Arm Inductance (Sized based on current ripple / short circuit protection)
 % Typical rule of thumb limits circulation current ripple:
 L_arm    = 40e-3;     % Arm inductance [H] (40 mH)
-L_arm_pow_rat = 14.4; % Power rating of inductor in W
+L_arm_pow_rat = 25; % Power rating of inductor in W
 L_arm_res = 0.4;      %(.4 Ohms)
 L_arm_satcurrent = 7; %(7A)
 L_tolr = 15;          %(15%)
@@ -44,8 +44,6 @@ T_sample = 50e-6;      % Sample time for discrete controllers [s] (50 us)
 m        = 0.83;        % Modulation index
 cosphi   = 1;        % Power factor
 
-disp('>>> MMC parameters loaded successfully into Base Workspace! <<<');
-
 %% 7. Load components
 R_load = 43.5; % Load resistance [43.5 Ohms]
 L_load = 67.2e-3 ; % Load inductance [67.2 mH]
@@ -67,5 +65,3 @@ I_DEADBAND = 1e-3;      % [A]
 
 V_TOL_PERCENT = 0.001;      % 0.1%
 V_TOL = V_TOL_PERCENT * Vc_nom;      % [V]
-
-disp('>>> MMC parameters loaded successfully into Base Workspace! <<<');
